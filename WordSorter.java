@@ -7,13 +7,16 @@ public class WordSorter
 {
 	public static void main(String[] args) 
 	{
+		boolean run = true;
+		while(run != false){
 		Scanner in = new Scanner(System.in); 
 		Scanner input = new Scanner(System.in);
-		ArrayList <String> uniqueWords = new ArrayList <String>();
+		ArrayList <String> allWords = new ArrayList <String>();
+		int counter = 0;
 		try
 		{
 			in = new Scanner(new File("article.txt"));	
-			
+		
 		}
 		catch(Exception e)
 		{
@@ -24,6 +27,7 @@ public class WordSorter
 		String word = "";
 		while(in.hasNext())
 		{
+			
 			word = in.next();
 			word = word.replace(",", "");
 			word = word.replace("(tm)", "");
@@ -36,7 +40,7 @@ public class WordSorter
 			word = word.replace("?", "");
 			word = word.replace("'", "");
 			//System.out.println(word);
-			uniqueWords.add(word);
+			allWords.add(word);
 		}//end while
 		
 		System.out.println("Choose one of the options listed:");
@@ -50,18 +54,26 @@ public class WordSorter
 
 		if(option == 1){
 			System.out.println("Enter a letter");
-			char letter = input.nextLine();
-			int convert = (int)letter;
+			String letter = input.nextLine();
+			int convert = Integer.valueOf(letter);
 
 			for(int i = 0; i <= uniqueWords.size(); i++){
-				if(uniqueWords(i) == convert)
-					System.out.println(word);
+				int convertLetter = Integer.valueOf(uniqueWords[i]);
+				if(convertLetter == convert) //doesn't work
+				System.out.println("All words starting with" + letter);
+				System.out.println(word);
 			}//end for loop
 		}//end if
 
 		if(option == 2){
 			System.out.println(uniqueWords);
+		}//end if option 2 
+
+		if(option == 3){
+			if(counter = 0)
+				System.out.println();
 		}//end if
 
+		}//end while loop (from beginning)
 	}//end main
 }//end class
