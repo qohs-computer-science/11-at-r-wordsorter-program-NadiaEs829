@@ -7,8 +7,8 @@ public class WordSorter
 {
 	public static void main(String[] args) 
 	{
-		//boolean run = true;
-		//while(run != false){
+		boolean run = true;
+		while(run != false){
 		Scanner in = new Scanner(System.in); 
 		Scanner input = new Scanner(System.in);
 		ArrayList <String> allWords = new ArrayList <String>();
@@ -48,6 +48,11 @@ public class WordSorter
 			}//end if
 		}//end while
 
+		//just sort each word alphabetically - no need for array in array - read directions for further clarifications
+		//for(int a = 0; a <= allWords.size(); a++){
+			//if(allWords.get(i).charAt(0) < allWords.get(i).charAt(0+1))
+				//FIX this: currently not correct
+		//}//end for loop
 		System.out.println("Choose one of the options listed:");
 		System.out.println();
 		System.out.println("1. Print out all the words starting with a specific letter.");
@@ -57,6 +62,8 @@ public class WordSorter
 		System.out.println("5. Remove a word from the data structure");
 		System.out.println("6. Exit");
 		int option = input.nextInt();
+
+		//NOTE: Check all word inputs are in lowercase!
 
 		//if(option == 1){
 			//System.out.println("Enter a letter");
@@ -71,9 +78,11 @@ public class WordSorter
 			//}//end for loop
 		//}//end if
 
-		if(option == 2){
+		//finish option 2
+		if(option == 2){ 
 			for (int i = 0; i < allWords.size(); i++){
 				System.out.println(allWords.get(i));
+			//if()//if list is empty
 			}
 		}//end if option 2 
 
@@ -112,9 +121,9 @@ public class WordSorter
 			else
 				System.out.println("Word NOT found in the article");
 		}//end if
-		if(option == 6){
-			
-		}//end if
-		//}//end while loop (from beginning)
+		if(option == 6)
+			run = false;
+		
+		}//end while loop (from the beginning)
 	}//end main
 }//end class
