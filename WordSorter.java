@@ -65,18 +65,22 @@ public class WordSorter
 
 		//NOTE: Check all word inputs are in lowercase!
 
-		//if(option == 1){
-			//System.out.println("Enter a letter");
-			//String letter = input.nextLine();
-			//int convert = Integer.valueOf(letter);
+		if(option == 1){
+			System.out.println("Enter a letter");
+			String letter = input.nextLine();
+			int convert = Integer.valueOf(letter);
+			System.out.println("Here's a list of all words starting with " + letter);
 
-			//for(int i = 0; i <= allWords.size(); i++){
-				//int convertLetter = Integer.valueOf(allWords[i]);
-				//if(convertLetter == convert) //doesn't work
-				//System.out.println("All words starting with" + letter);
-				//System.out.println(word);
-			//}//end for loop
-		//}//end if
+			for(int i = 0; i <= allWords.size(); i++){
+				if(allWords.get())
+			}//end for loop
+
+			//for each word in the list 
+			//convert the specific letter to a number
+			//Have to state where each word starts and ends -- possibly in notes
+			// if word.get(i).charAt(0) == the converted letter at index 0 
+			//print the word
+		}//end if
 
 		//finish option 2
 		if(option == 2){ 
@@ -123,7 +127,6 @@ public class WordSorter
 		}//end if
 		if(option == 6)
 			run = false;
-		
 		}//end while loop (from the beginning)
 	}//end main
 }//end class
