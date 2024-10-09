@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 //Nadia Escamilla, 10/2, pd:7
 //process through all values and print words based on user input
 public class WordSorter 
@@ -11,8 +12,8 @@ public class WordSorter
 		while(run != false){
 		Scanner in = new Scanner(System.in); 
 		Scanner input = new Scanner(System.in);
-		ArrayList <String> allWords = new ArrayList <String>();
 		ArrayList <String> uniqueWords = new ArrayList<String>();
+
 
 		int uniCounter = 0;
 		try
@@ -48,11 +49,6 @@ public class WordSorter
 			}//end if
 		}//end while
 
-		//just sort each word alphabetically - no need for array in array - read directions for further clarifications
-		//for(int a = 0; a <= allWords.size(); a++){
-			//if(allWords.get(i).charAt(0) < allWords.get(i).charAt(0+1))
-				//FIX this: currently not correct
-		//}//end for loop
 		System.out.println("Choose one of the options listed:");
 		System.out.println();
 		System.out.println("1. Print out all the words starting with a specific letter.");
@@ -67,42 +63,56 @@ public class WordSorter
 
 		if(option == 1){
 			System.out.println("Enter a letter");
-			String letter = input.nextLine();
-			int convert = Integer.valueOf(letter);
+			input.nextLine();
+			String letter = input.nextLine().toLowerCase();
+			char letterOne = letter.charAt(0);
 			System.out.println("Here's a list of all words starting with " + letter);
-
-			for(int i = 0; i <= allWords.size(); i++){
-				if(allWords.get())
+			boolean ans;
+			for(int i = 0; i < uniqueWords.size(); i++){
+				String firstWord = uniqueWords.get(i);
+				char firstLetter = firstWord.charAt(0);
+				if(firstLetter == letterOne){
+					ans = true;
+					System.out.println(uniqueWords.get(i));
+				}//end if
+				else 
+					ans = false;
 			}//end for loop
-
-			//for each word in the list 
-			//convert the specific letter to a number
-			//Have to state where each word starts and ends -- possibly in notes
-			// if word.get(i).charAt(0) == the converted letter at index 0 
-			//print the word
+			if(ans = false) 
+				System.out.println("No words start with this letter");
+			System.out.println();
 		}//end if
 
 		//finish option 2
-		if(option == 2){ 
-			for (int i = 0; i < allWords.size(); i++){
-				System.out.println(allWords.get(i));
-			//if()//if list is empty
-			}
-		}//end if option 2 
+		if(option == 2){
+			int x = 97;
+			int i = 0;
+			//while(x >= 97 && x <= 122)
+			System.out.println();
+			System.out.println("List of letter " + (char)x);
+			//for(int i = 0; i <= uniqueWords.size(); i++)
+			while (x >= 97 && x <= 122){
+				if(uniqueWords.get(i).charAt(0) == (char)x){
+					System.out.println(uniqueWords.get(i));
+				}//end if
+				i++;
+			}//end while
+			x++;
+		}//end option 2 
 
 		if(option == 3){
 			System.out.println("There are " + uniCounter + " unique words in the article");
 			if(uniCounter == 0)
 				System.out.println("Empty List");
-		}//end if
+		}//end option 3
 
 		if(option == 4){
 			boolean inside;
 			System.out.println("Enter a single word");
 			input.nextLine();
-			String word1 = input.nextLine();
-			for(int i = 0; i < allWords.size(); i++){
-				if(allWords.get(i).equals(word1))
+			String word1 = input.nextLine().toLowerCase();
+			for(int i = 0; i < uniqueWords.size(); i++){
+				if(uniqueWords.get(i).equals(word1))
 					inside = true;
 			}//end for loop
 			if(inside = true)
@@ -114,13 +124,13 @@ public class WordSorter
 		if(option == 5){
 			System.out.println("Enter a single word");
 			input.nextLine();
-			String word2 = input.nextLine();
-			for(int x = allWords.size()-1; x >= 0; x--){
-				if(allWords.get(x).equals(word2)){
-					allWords.remove(x);
+			String word2 = input.nextLine().toLowerCase();
+			for(int x = uniqueWords.size()-1; x >= 0; x--){
+				if(uniqueWords.get(x).equals(word2)){
+					uniqueWords.remove(x);
 				}//end if
 			}//end for loop
-			if(!allWords.contains(word2))
+			if(!uniqueWords.contains(word2))
 				System.out.println("Word successfully removed from the list");
 			else
 				System.out.println("Word NOT found in the article");
